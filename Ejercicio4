@@ -1,0 +1,54 @@
+package Main;
+
+//4. El patrón de estrategia
+// Tiene un if…else de 10 niveles para calcular descuentos según el tipo de cliente.
+// Investigue porque los desarrolladores dicen que “muchos if seguidos son olor de código
+// (code smell)” y proponga una alternativa inicial usando un switch mejorado o discutir
+// como los objetos podrían reemplazar estas decisiones en el futuro.
+
+public class Ejercicio4 {
+}
+
+//Respuesta:
+//Muchos if seguidos se consideran code smell porque hacen el código difícil de leer, mantener y modificar.
+//Si agregamos más tipos de cliente, el código se vuelve muy largo y desordenado.
+//Una alternativa inicial es usar switch, que organiza mejor las decisiones.
+//En el futuro se puede usar el patrón estrategia, donde cada tipo de cliente es un objeto con su propia forma
+// de calcular el descuento, evitando muchos if.
+
+//ALTERNATIVA USANDO SWITCH
+
+public class CostoEnvio {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int tipoEnvio;
+        double costo = 0;
+
+        System.out.println("Tipo de envio:");
+        System.out.println("1. Normal");
+        System.out.println("2. Rapido");
+        System.out.println("3. Express");
+
+        System.out.print("Seleccione el tipo de envio: ");
+        tipoEnvio = sc.nextInt();
+
+        switch (tipoEnvio) {
+            case 1:
+                costo = 5;
+                break;
+            case 2:
+                costo = 10;
+                break;
+            case 3:
+                costo = 20;
+                break;
+            default:
+                System.out.println("Opcion no valida");
+        }
+
+        System.out.println("Costo de envio: $" + costo);
+    }
+}
